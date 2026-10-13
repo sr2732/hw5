@@ -1,0 +1,51 @@
+{
+  "database": "data/campus_customs_new.db",
+  "starting_checking_balance": 3400.0,
+  "ending_checking_balance": 160.0,
+  "tickets": [
+    {
+      "id": 101,
+      "final_status": "resolved",
+      "short_outcome": "Size-S Bulldog tee was unavailable; invoice 501 was approved and paid, but no shipment or delivery promise was made.",
+      "agent_contributions": {
+        "boss": "Coordinated the stock, invoice, and customer-draft reviews and held the ticket at the approval gate.",
+        "inventory": "Confirmed zero CC-TEE-WHITE size-S stock, identified Bulldog Print Co and its five-day recorded lead time, and did not invent fulfillment.",
+        "accounting": "Reviewed overdue invoice 501 for $840, checking cash, rent timing, and payment history; prepared the approval recommendation.",
+        "customer_service": "Prepared a draft-only customer response without promising availability or delivery.",
+        "facilities": "Not triggered; no lease or shop-space work was needed."
+      },
+      "mcp_tools_used": ["get_ticket_context", "get_product_position", "get_cash_and_obligations", "get_payment_history", "list_vendors"],
+      "human_approvals": [{"kind":"invoice","ref_id":501,"amount":840.0,"approved_by":"Sam Rosa","recorded_in_payments":1}]
+    },
+    {
+      "id": 102,
+      "final_status": "resolved",
+      "short_outcome": "Lease 1 rent was approved and paid before its 2026-09-02 due date; no landlord message was sent.",
+      "agent_contributions": {
+        "boss": "Coordinated lease verification, cash review, and the final approval gate.",
+        "facilities": "Not triggered in the actual run, although Facilities was the expected first specialist in the plan.",
+        "accounting": "Reviewed checking cash, the competing invoice, and payment history; prepared the approval recommendation and flagged the amount over $1,000.",
+        "customer_service": "Not triggered for the final run; no landlord communication was required.",
+        "inventory": "Not triggered; no product or stock work was needed."
+      },
+      "mcp_tools_used": ["get_ticket_context", "get_cash_and_obligations", "get_payment_history"],
+      "human_approvals": [{"kind":"rent","ref_id":1,"amount":2400.0,"approved_by":"Sam Rosa","recorded_in_payments":2}]
+    },
+    {
+      "id": 103,
+      "final_status": "resolved",
+      "short_outcome": "Resolved as unable to fulfill safely: 12 hoodies were short, the estimated $264 restock exceeded $160 cash, and no approved discount policy or supplier quote existed.",
+      "agent_contributions": {
+        "boss": "Reviewed the final stock, pricing, cash, and approval-flag results and presented the human resolve/keep-open choice.",
+        "inventory": "Confirmed 8 on hand and a 12-unit shortfall, reviewed recorded vendor specialty/lead time, and did not place an order.",
+        "accounting": "Calculated the $264 estimated restock against $160 cash, blocked the negative-balance purchase, and found no approved discount ceiling.",
+        "customer_service": "Prepared a draft-only response without promising a discount, inventory, or delivery date.",
+        "facilities": "Not triggered; no lease or shop-space work was needed."
+      },
+      "mcp_tools_used": ["get_ticket_context", "get_product_position", "get_cash_and_obligations", "list_vendors", "list_open_tickets", "get_payment_history"],
+      "human_approvals": [{"decision":"resolve","decided_by":"Sam Rosa","rationale":"Block purchase. Resolve as unable to fulfill safely: 12 units are unavailable, estimated $264 restock exceeds $160 checking balance and no approved discount policy or supplier quote exists."}],
+      "cash_outflow": 0.0,
+      "purchase_blocked": true
+    }
+  ]
+}
